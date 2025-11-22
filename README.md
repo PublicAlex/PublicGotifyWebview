@@ -1,6 +1,5 @@
 # Gotify Enhanced: HTML & Accordion Support 🚀
 
-<img align="right" src="app.gif" width="250" />
 
 **Transform your notifications into interactive experiences!**
 
@@ -9,8 +8,9 @@ This is a supercharged version of the Gotify Android client, designed for power 
 ## ✨ New Features
 
 <p align="center">
-  <img src="notifyplus.jpg" width="600" alt="Notify Plus Preview" />
+  <img src="notifyplus.jpg" width="500" alt="Notify Plus Preview" />
 </p>
+
 
 *   **Rich HTML Rendering**: Send notifications with full HTML support! Use tables, lists, bold, italic, and more to format your messages exactly how you want them.
 *   **Interactive Accordions**: Keep your notification feed clean and organized. Use `<details>` and `<summary>` tags to create collapsible sections. Perfect for logs, stack traces, or long automated reports that you can expand with a tap! 
