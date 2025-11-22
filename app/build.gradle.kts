@@ -12,15 +12,15 @@ android {
     namespace = "com.github.gotify"
     compileSdk = 36
     defaultConfig {
-        applicationId = "com.github.gotify"
+        applicationId = "com.home.notifyplus"
         minSdk = 23
         targetSdk = 36
-        versionCode = 34
-        versionName = "2.9.0"
+        versionCode = 33
+        versionName = "2.8.2"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         signingConfig = signingConfigs.getByName("debug")
-        resValue("string", "app_name", "Gotify")
+        resValue("string", "app_name", "NotifyPlus")
     }
     buildTypes {
         release {
@@ -33,7 +33,7 @@ android {
         register("development") {
             applicationIdSuffix = ".dev"
             isDebuggable = true
-            resValue("string", "app_name", "Gotify DEV")
+            resValue("string", "app_name", "NotifyPlus DEV")
         }
     }
     buildFeatures {

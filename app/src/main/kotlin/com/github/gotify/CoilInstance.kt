@@ -54,13 +54,13 @@ object CoilInstance {
 
     fun getIcon(context: Context, app: Application?): Bitmap {
         if (app == null) {
-            return BitmapFactory.decodeResource(context.resources, R.drawable.gotify)
+            return BitmapFactory.decodeResource(context.resources, R.drawable.notifyplus_splash)
         }
         val baseUrl = Settings(context).url
         return getImageFromUrl(
             context,
             Utils.resolveAbsoluteUrl("$baseUrl/", app.image),
-            R.drawable.gotify
+            R.drawable.notifyplus_splash
         )
     }
 

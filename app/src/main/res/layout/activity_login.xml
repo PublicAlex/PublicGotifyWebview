@@ -68,7 +68,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/gotify"
+            app:srcCompat="@drawable/notifyplus"
             android:contentDescription="@string/gotify_logo" />
 
         <com.google.android.material.textfield.TextInputLayout

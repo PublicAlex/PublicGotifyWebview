@@ -1,10 +1,25 @@
-# Gotify Android [![Build Status][github-action-badge]][github-action] [![FOSSA Status][fossa-badge]][fossa] [![latest release version][release-badge]][release] [![F-Droid][fdroid-badge]][fdroid]
+# Gotify Enhanced: HTML & Accordion Support 🚀
 
 <img align="right" src="app.gif" width="250" />
 
-Gotify Android connects to [gotify/server](https://github.com/gotify/server) and shows push notifications on new messages.
+**Transform your notifications into interactive experiences!**
 
-## Features
+This is a supercharged version of the Gotify Android client, designed for power users who need more than just plain text. We've unlocked the full potential of your notifications with rich HTML support and interactive accordion layouts.
+
+## ✨ New Features
+
+![Notify Plus Preview](notifyplus.jpg)
+
+*   **Rich HTML Rendering**: Send notifications with full HTML support! Use tables, lists, bold, italic, and more to format your messages exactly how you want them.
+*   **Interactive Accordions**: Keep your notification feed clean and organized. Use `<details>` and `<summary>` tags to create collapsible sections. Perfect for logs, stack traces, or long automated reports that you can expand with a tap! 
+*   **Secure & Fast**: Optimized for performance and security, ensuring your data stays safe while looking great.
+
+> [!WARNING]
+> **Security Note**: JavaScript is enabled by default to support rich interactive content. If you plan to receive notifications from untrusted third-party sources, we strongly recommend disabling JavaScript in the source code (`settings.javaScriptEnabled = false` in `ListMessageAdapter.kt`) to prevent potential XSS attacks.
+
+---
+
+## Features (Original)
 
 * show push notifications on new messages
 * view and delete messages
@@ -46,7 +61,7 @@ The foreground notification showing the connection status can be manually minimi
 ## Message Priorities
 
 | Notification | Gotify Priority|
-|- |-|
+| - | - |
 | - | 0 |
 | Icon in notification bar | 1 - 3 |
 | Icon in notification bar + Sound | 4 - 7 |
@@ -76,6 +91,14 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
+---
+
+## Credits & Original Project
+
+This project is a fork of the awesome [Gotify Android](https://github.com/gotify/android) client. All credit for the core functionality goes to the original authors and contributors. We simply added some spicy HTML features on top! 🌶️
+
+Gotify Android connects to [gotify/server](https://github.com/gotify/server) and shows push notifications on new messages.
+
  [github-action-badge]: https://github.com/gotify/android/workflows/Build/badge.svg
  [github-action]: https://github.com/gotify/android/actions?query=workflow%3ABuild
  [playstore]: https://play.google.com/store/apps/details?id=com.github.gotify
@@ -85,4 +108,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
  [fossa]: https://app.fossa.io/projects/git%2Bgithub.com%2Fgotify%2Fandroid
  [release-badge]: https://img.shields.io/github/release/gotify/android.svg
  [release]: https://github.com/gotify/android/releases/latest
- 
