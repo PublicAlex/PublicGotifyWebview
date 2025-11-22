@@ -21,26 +21,22 @@ This is a supercharged version of the Gotify Android client, designed for power 
 
 ---
 
-## Features (Original)
+## 📦 Installation
 
-* show push notifications on new messages
-* view and delete messages
+### Download & Install
 
-## Installation
+1. Download the latest APK from the [Releases](https://github.com/yourusername/gotify-android-enhanced/releases) page
+2. Enable "Install from Unknown Sources" in your Android settings
+3. Install the APK
+4. Configure your Gotify server connection
 
-Download the apk or get the app via F-Droid or Google Play.
+> **Note**: This is a modified version of the official Gotify Android client. It's not available on Google Play or F-Droid. For the official version, visit [gotify/android](https://github.com/gotify/android).
 
-[<img src="https://play.google.com/intl/en_gb/badges/images/generic/en_badge_web_generic.png" alt="Get it on Google Play" width="150" />][playstore]
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" width="150"/>][fdroid]
-[<img src="download-badge.png" alt="Get it on F-Droid" width="150"/>][release]
+### Disable Battery Optimization (Important!)
 
-Google Play and the Google Play logo are trademarks of Google LLC.
+By default Android kills long running apps as they drain the battery. With enabled battery optimization, Gotify will be killed and you won't receive any notifications.
 
-### Disable battery optimization
-
-By default Android kills long running apps as they drain the battery. With enabled battery optimization, Gotify will be killed and you wont receive any notifications.
-
-Here is one way to disable battery optimization for Gotify.
+Here is one way to disable battery optimization for Gotify:
 
 * Open "Settings"
 * Search for "Battery Optimization"
@@ -48,17 +44,60 @@ Here is one way to disable battery optimization for Gotify.
 
 See also https://dontkillmyapp.com for phone manufacturer specific instructions to disable battery optimizations.
 
-### Minimize the Gotify foreground notification
+---
 
-*Only possible for Android version >= 8*
+## 🚀 Usage Examples
 
-The foreground notification showing the connection status can be manually minimized to be less intrusive:
+### Basic HTML Formatting
 
-* Open Settings -> Apps -> Gotify
-* Click Notifications
-* Click on `Gotify foreground notification`
-* Toggle the "Minimize" option / Select a different "Behavior" or "Importance" (depends on your Android version)
-* Restart Gotify
+Send rich notifications using HTML tags in your message body:
+```bash
+curl -X POST "https://your-gotify-server.com/message?token=YOUR_APP_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "System Update",
+    "message": "<h3>Update Complete</h3><p>The system has been <strong>successfully updated</strong> to version <code>2.1.0</code></p><ul><li>New features added</li><li>Bug fixes applied</li><li>Performance improved</li></ul>",
+    "priority": 5
+  }'
+```
+
+### Interactive Accordions
+
+Use `<details>` and `<summary>` tags to create collapsible sections:
+```bash
+curl -X POST "https://your-gotify-server.com/message?token=YOUR_APP_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Deployment Report",
+    "message": "<h3>✅ Deployment Successful</h3><details><summary>📊 Click to view details</summary><pre>Starting deployment...\nBuilding Docker image...\nPushing to registry...\nDeploying to production...\n✓ All steps completed</pre></details><details><summary>⚙️ Configuration</summary><table><tr><td>Environment</td><td>Production</td></tr><tr><td>Version</td><td>v1.2.3</td></tr><tr><td>Region</td><td>us-east-1</td></tr></table></details>",
+    "priority": 7
+  }'
+```
+
+### Stack Traces and Logs
+
+Perfect for error notifications with collapsible stack traces:
+```bash
+curl -X POST "https://your-gotify-server.com/message?token=YOUR_APP_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "🔴 Application Error",
+    "message": "<h3>Error in UserService</h3><p><strong>Type:</strong> NullPointerException</p><p><strong>Time:</strong> 2025-01-15 14:30:22</p><details><summary>📋 Stack Trace</summary><pre>java.lang.NullPointerException: Cannot invoke method on null object\n  at com.example.UserService.getUser(UserService.java:45)\n  at com.example.Controller.handleRequest(Controller.java:123)\n  at javax.servlet.http.HttpServlet.service(HttpServlet.java:750)</pre></details>",
+    "priority": 9
+  }'
+```
+
+### Supported HTML Tags
+
+- **Text formatting**: `<b>`, `<strong>`, `<i>`, `<em>`, `<u>`, `<code>`, `<pre>`
+- **Headings**: `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`
+- **Lists**: `<ul>`, `<ol>`, `<li>`
+- **Tables**: `<table>`, `<tr>`, `<td>`, `<th>`
+- **Interactive**: `<details>`, `<summary>` (collapsible sections)
+- **Links**: `<a href="...">`
+- **Divisions**: `<div>`, `<span>`, `<p>`, `<br>`
+
+---
 
 ## Message Priorities
 
@@ -72,7 +111,6 @@ The foreground notification showing the connection status can be manually minimi
 ## Building
 
 Use Java 17 and execute the following command to build the apk.
-
 ```bash
 $ ./gradlew build
 ```
@@ -82,7 +120,7 @@ $ ./gradlew build
 * Run `./gradlew generateSwaggerCode`
 * Delete `client/settings.gradle` (client is a gradle sub project and must not have a settings.gradle)
 * Delete `repositories` block from `client/build.gradle`
-* Delete `implementation "com.sun.xml.ws:jaxws-rt:x.x.x“` from `client/build.gradle`
+* Delete `implementation "com.sun.xml.ws:jaxws-rt:x.x.x"` from `client/build.gradle`
 * Insert missing bracket in `retryingIntercept` method of class `src/main/java/com/github/gotify/client/auth/OAuth`
 * Commit changes
 
